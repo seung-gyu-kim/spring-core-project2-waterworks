@@ -1,23 +1,23 @@
 package waterworks.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
+@EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 public class WaterBill {
+    private int no;
     private String city;
     private String sector;
-    private int unitPrice;
-    private Integer billTotal;
-
-    private int no;
     private int step;
     private int unitStart;
     private int unitEnd;
-    private int basicCost;
+    private int unitPrice;
+    private Integer basicCost;
+    private Integer billTotal;
 
     @Override
     public String toString() {

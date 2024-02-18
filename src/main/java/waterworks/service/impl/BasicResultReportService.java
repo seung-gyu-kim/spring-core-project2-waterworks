@@ -10,8 +10,8 @@ import java.util.List;
 public class BasicResultReportService implements ResultReportService {
     @Override
     public void report(List<WaterBill> data) {
-        for(WaterBill r : data) {
-            System.out.println(r);
+        for(WaterBill waterBill : data) {
+            System.out.println(waterBill);
         }
     }
 }
