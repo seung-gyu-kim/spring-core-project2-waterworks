@@ -1,6 +1,7 @@
 package waterworks.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import waterworks.BootStrap;
 import waterworks.domain.WaterBill;
 import waterworks.repository.TariffRepository;
@@ -11,6 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class BasicTariffRepository implements TariffRepository {
     private final DataParser dataParser;
