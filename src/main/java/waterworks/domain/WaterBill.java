@@ -22,8 +22,8 @@ public class WaterBill {
     @Override
     public String toString() {
         return "WaterBill{" +
-                "city='" + city.strip() + '\'' +
-                ", sector='" + sector.strip() + '\'' +
+                "city='" + city + '\'' +
+                ", sector='" + sector + '\'' +
                 ", unitPrice=" + unitPrice +
                 ", billTotal=" + billTotal +
                 '}';

@@ -17,7 +17,12 @@ public class CsvDataParser implements DataParser {
     public List<WaterBill> parse(URL path) {
         CsvMapper csvMapper = new CsvMapper();
         try(MappingIterator<WaterBill> mappingIterator = csvMapper.readerFor(WaterBill.class).with(getSchema()).readValues(path)) {
-            return mappingIterator.readAll();
+            List<WaterBill> waterBills = mappingIterator.readAll();
+            waterBills.forEach(wb -> {
+                wb.setCity(wb.getCity().strip());
+                wb.setSector(wb.getSector().strip());
+            });
+            return waterBills;
         } catch(IOException e) {
             throw new RuntimeException(e);
         }
