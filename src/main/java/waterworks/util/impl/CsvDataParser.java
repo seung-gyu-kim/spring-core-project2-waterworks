@@ -15,7 +15,6 @@ import java.util.List;
 public class CsvDataParser implements DataParser {
     @Override
     public List<WaterBill> parse(URL path) {
-        if(true) throw new RuntimeException();
         List<WaterBill> waterBillList = new ArrayList<>();
 
         try(BufferedReader br = new BufferedReader(new InputStreamReader(path.openStream()))) {

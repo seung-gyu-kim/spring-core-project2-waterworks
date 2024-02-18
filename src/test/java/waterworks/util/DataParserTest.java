@@ -20,23 +20,6 @@ class DataParserTest {
     @Autowired
     DataParser dataParser;
 
-    //1, 동두천시 , 가정용 ,1,1,20,690,
-    //2, 동두천시 , 가정용 ,2,21,30,1090,
-    //3, 동두천시 , 가정용 ,3,31,999999,1530,
-    //4, 동두천시 , 일반용 ,1,1,100,1410,
-    //5, 동두천시 , 일반용 ,2,101,300,1480,
-    //6, 동두천시 , 일반용 ,3,301,1000,1560,
-    //7, 동두천시 , 일반용 ,4,1001,999999,1700,
-    //8, 동두천시 , 일반용(미) ,1,1,1000,1090,
-    //9, 동두천시 , 일반용(미) ,2,1001,9999999,1200,
-    //10, 동두천시 , 전용공업용 ,1,1,999999,510,
-    List<WaterBill> waterBills = new ArrayList<>();
-
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     void parse() {
         List<WaterBill> waterBillList = dataParser.parse(getClass().getClassLoader().getResource("Tariff_20220331.csv"));
