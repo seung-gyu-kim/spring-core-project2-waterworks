@@ -14,6 +14,8 @@ public class BasicWaterUsageFeeService implements WaterUsageFeeService {
     private final TariffRepository tariffRepository;
     @Override
     public List<WaterBill> getBillList(int usage) {
-        return tariffRepository.findTop5ByUsage(usage);
+        List<WaterBill> result = tariffRepository.findTop5ByUsage(usage);
+        result.forEach(wb -> wb.setBillTotal(wb.getUnitPrice() * usage));
+        return result;
     }
 }

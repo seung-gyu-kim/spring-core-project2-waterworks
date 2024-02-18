@@ -25,11 +25,9 @@ public class BasicTariffRepository implements TariffRepository {
 
     @Override
     public List<WaterBill> findTop5ByUsage(int usage) {
-        List<WaterBill> result = tariffs.stream()
+        return tariffs.stream()
                 .sorted(Comparator.comparingInt(WaterBill::getUnitPrice))
                 .limit(5)
                 .collect(Collectors.toList());
-        result.forEach(wb -> wb.setBillTotal(wb.getUnitPrice() * usage));
-        return result;
     }
 }
