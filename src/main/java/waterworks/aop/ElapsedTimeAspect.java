@@ -22,8 +22,8 @@ public class ElapsedTimeAspect {
 
             retVal = pjp.proceed();
 
-        } catch(Throwable throwable) {
-            throwable.printStackTrace();
+        } catch(Throwable e) {
+            throw new RuntimeException(e);
         } finally {
             stopWatch.stop();
 
