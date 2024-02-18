@@ -3,7 +3,7 @@ package waterworks.util.impl;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import waterworks.domain.WaterSupplyTariff;
+import waterworks.domain.WaterBill;
 import waterworks.util.DataParser;
 
 import java.io.IOException;
@@ -12,9 +12,9 @@ import java.util.List;
 
 public class CsvDataParser implements DataParser {
     @Override
-    public List<WaterSupplyTariff> parse(URL path) {
+    public List<WaterBill> parse(URL path) {
         CsvMapper csvMapper = new CsvMapper();
-        try(MappingIterator<WaterSupplyTariff> mappingIterator = csvMapper.readerFor(WaterSupplyTariff.class).with(getSchema()).readValues(path)) {
+        try(MappingIterator<WaterBill> mappingIterator = csvMapper.readerFor(WaterBill.class).with(getSchema()).readValues(path)) {
             return mappingIterator.readAll();
         } catch(IOException e) {
             throw new RuntimeException(e);
@@ -24,13 +24,13 @@ public class CsvDataParser implements DataParser {
     public CsvSchema getSchema() {
         return CsvSchema.builder()
                 .addColumn("no")
-                .addColumn("name")
-                .addColumn("type")
+                .addColumn("city")
+                .addColumn("sector")
                 .addColumn("step")
                 .addColumn("unitStart")
                 .addColumn("unitEnd")
                 .addColumn("unitPrice")
-                .addColumn("basicPrice")
+                .addColumn("basicCost")
                 .build().withHeader();
     }
 }
