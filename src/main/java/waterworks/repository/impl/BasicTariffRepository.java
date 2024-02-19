@@ -1,12 +1,9 @@
 package waterworks.repository.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import waterworks.domain.WaterBill;
 import waterworks.repository.TariffRepository;
-import waterworks.util.DataParser;
 import waterworks.util.impl.CsvDataParser;
 import waterworks.util.impl.JsonDataParser;
 
