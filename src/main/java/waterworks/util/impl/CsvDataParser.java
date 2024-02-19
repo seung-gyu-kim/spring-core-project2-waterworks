@@ -14,10 +14,10 @@ import java.util.List;
 @Component
 public class CsvDataParser implements DataParser {
     @Override
-    public List<WaterBill> parse(URL path) {
+    public List<WaterBill> parse(URL src) {
         List<WaterBill> waterBillList = new ArrayList<>();
 
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(path.openStream()))) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(src.openStream()))) {
             br.readLine();
 
             String line;

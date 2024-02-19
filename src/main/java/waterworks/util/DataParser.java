@@ -6,5 +6,5 @@ import java.net.URL;
 import java.util.List;
 
 public interface DataParser {
-    List<WaterBill> parse(URL path);
+    List<WaterBill> parse(URL src);
 }

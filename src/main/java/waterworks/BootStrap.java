@@ -16,7 +16,7 @@ public class BootStrap {
     public static void main(String[] args) {
         try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("waterworks.config")) {
             TariffRepository basicTariffRepository = context.getBean(BasicTariffRepository.class);
-            basicTariffRepository.load();
+            basicTariffRepository.load(BootStrap.class.getClassLoader().getResource("Tariff_20220331.json"));
 
             WaterUsageFeeService waterUsageFeeService = context.getBean(BasicWaterUsageFeeService.class);
             ResultReportService resultReportService = context.getBean(BasicResultReportService.class);
