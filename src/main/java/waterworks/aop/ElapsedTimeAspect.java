@@ -14,19 +14,14 @@ public class ElapsedTimeAspect {
     private final Log log = LogFactory.getLog(getClass());
 
     @Around("within(waterworks..*)")
-    public Object doStopWatch(ProceedingJoinPoint pjp) {
+    public Object doStopWatch(ProceedingJoinPoint pjp) throws Throwable {
         StopWatch stopWatch = new StopWatch();
         Object retVal = null;
         try {
             stopWatch.start();
-
             retVal = pjp.proceed();
-
-        } catch(Throwable e) {
-            throw new RuntimeException(e);
         } finally {
             stopWatch.stop();
-
             //[class name].[method name] [속도]ms
             log.info(String.format("%s.%s %dms", pjp.getTarget().getClass().getName(), pjp.getSignature().getName(), stopWatch.getTotalTimeMillis()));
         }

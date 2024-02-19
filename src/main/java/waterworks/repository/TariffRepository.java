@@ -2,7 +2,6 @@ package waterworks.repository;
 
 import waterworks.domain.WaterBill;
 
-import java.net.URL;
 import java.util.List;
 
 public interface TariffRepository {

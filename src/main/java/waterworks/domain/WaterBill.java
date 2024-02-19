@@ -6,7 +6,6 @@ import lombok.*;
 @Setter
 @Builder
 @EqualsAndHashCode
-@NoArgsConstructor
 @AllArgsConstructor
 public class WaterBill {
     private int no;
